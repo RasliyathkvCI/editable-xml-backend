@@ -54,7 +54,7 @@ router.post("/create", async (req, res) => {
     // Build the XML link
     const xmlLink = `${req.protocol}://${req.get("host")}/api/vast/${
       newAd._id
-    }/xml`;
+    }.xml`;
 
     // Save the link in VastLink table
     await VastLink.create({
@@ -76,7 +76,7 @@ router.post("/create", async (req, res) => {
 });
 
 // Serve VAST XML as raw XML by MongoDB _id
-router.get("/:id/xml", async (req, res) => {
+router.get("/:id.xml", async (req, res) => {
   try {
     const vast = await VastAd.findById(req.params.id);
     if (!vast) return res.status(404).send("Not found");
@@ -94,7 +94,7 @@ router.get("/", async (req, res) => {
     const host = `${req.protocol}://${req.get("host")}`;
     const vastAdsWithLinks = vastAds.map((ad) => ({
       ...ad.toObject(),
-      xmlLink: `${host}/api/vast/${ad._id}/xml`,
+      xmlLink: `${host}/api/vast/${ad._id}.xml`,
     }));
     res.json(vastAdsWithLinks);
   } catch (error) {

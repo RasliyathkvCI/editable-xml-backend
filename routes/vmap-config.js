@@ -37,7 +37,7 @@ router.post("/create", async (req, res) => {
     // Build the XML link
     const xmlLink = `${req.protocol}://${req.get("host")}/api/vmap-config/${
       newVmap._id
-    }/xml`;
+    }.xml`;
 
     // Save the link in VmapLink table
     await VmapLink.create({
