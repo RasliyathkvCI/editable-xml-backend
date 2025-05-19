@@ -12,7 +12,7 @@ const app = express();
 // Middlewares
 app.use(cors());
 app.use(express.json());
-
+app.set('trust proxy', true);  
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
