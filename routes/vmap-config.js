@@ -58,7 +58,7 @@ router.post("/create", async (req, res) => {
       .json({ message: "Failed to create VMAP XML", error: err.message });
   }
 });
-router.get("/:id/xml", async (req, res) => {
+router.get("/:id.xml", async (req, res) => {
   try {
     const vmap = await VmapFile.findById(req.params.id);
     if (!vmap) return res.status(404).send("Not found");
