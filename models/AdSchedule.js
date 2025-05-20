@@ -7,7 +7,7 @@ const AdSchema = new mongoose.Schema({
   adId: String,
   timeOffset: String,
   vastXml: String,
-  vastLink: String,  // store the generated link here
+  xmlLink: String,  // store the generated link here
   createdAt: { type: Date, default: Date.now },
   updatedAt: Date
 });

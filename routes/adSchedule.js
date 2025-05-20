@@ -49,7 +49,7 @@ router.post("/create", async (req, res) => {
     });
 
     await newAd.save();
-    newAd.vastLink = `${req.protocol}://${req.get("host")}/api/vast-schedule/${
+    newAd.xmlLink = `${req.protocol}://${req.get("host")}/api/vast-schedule/${
       newAd._id
     }.xml`;
     await newAd.save();
