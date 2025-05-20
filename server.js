@@ -6,6 +6,8 @@ require('dotenv').config();
 
 const vastRoutes = require('./routes/vast');
 const vmapConfigRoutes = require('./routes/vmap-config');
+const vastScheduleRoutes = require('./routes/adSchedule');
+const vmapScheduleConfigRoutes = require('./routes/vmapSchedule');
 
 const app = express();
 
@@ -25,6 +27,8 @@ mongoose.connect(process.env.MONGO_URI, {
 // Routes
 app.use('/api/vast', vastRoutes);
 app.use('/api/vmap-config', vmapConfigRoutes);
+app.use('/api/vast-schedule', vastScheduleRoutes);
+app.use('/api/vmap-schedule', vmapScheduleConfigRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
